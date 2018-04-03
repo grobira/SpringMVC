@@ -1,0 +1,6 @@
+app\Repository\UserMongoRepository$1.class
+app\Service\UserService.class
+app\MainApplication.class
+app\Repository\UserMongoRepository.class
+app\Model\User.class
+app\Controller\UserController.class
