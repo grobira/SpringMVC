@@ -1,7 +1,7 @@
 package com.spring.app.service;
 
-import com.spring.app.repository.PersonRepository;
 import com.spring.app.repository.Person;
+import com.spring.app.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +16,10 @@ public class PersonService {
 
     public List<Person> findAll(){
         return (List<Person>) this.personRepository.findAll();
+    }
+
+    public List<Person> findByAgeGreaterThen(int age){
+        return this.personRepository.findByAgeGreaterThen(age);
     }
 
     public Person insert(Person u){

@@ -3,7 +3,6 @@ package com.spring.app.controller;
 import com.spring.app.repository.Person;
 import com.spring.app.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,11 +21,17 @@ public class PersonController {
         return this.personService.findAll();
     }
 
+    @RequestMapping(value= "/filterByAge", method = RequestMethod.GET)
+    public List<Person> findByAgeGreaterThen(@RequestParam("age") String age){
+        System.out.println(this.personService.findByAgeGreaterThen(Integer.parseInt(age)));
+        return this.personService.findByAgeGreaterThen(Integer.parseInt(age));
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public Person insert(@RequestParam("name") String name,
                          @RequestParam("lastName") String lastName,
                          @RequestParam("age") String age){
-        return this.personService.insert(new Person( new Long(this.findAll().size()), name, lastName, age));
+        return this.personService.insert(new Person( new Long(this.findAll().size()), name, lastName, Integer.parseInt(age)));
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.PUT)
@@ -35,7 +40,7 @@ public class PersonController {
                          @RequestParam("lastName") String lastName,
                          @RequestParam("age") String age){
         this.deletebyId(id);
-        return this.personService.insert(new Person( Long.parseLong(id) , name, lastName, age));
+        return this.personService.insert(new Person( Long.parseLong(id) , name, lastName, Integer.parseInt(age)));
     }
 
     @RequestMapping(value = "/id", method = RequestMethod.GET)

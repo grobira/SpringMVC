@@ -16,9 +16,9 @@ public class Person {
 
     private String lastName;
 
-    private String age;
+    private int age;
 
-    public Person(Long id, String name, String lastName, String age) {
+    public Person(Long id, String name, String lastName, int age) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
