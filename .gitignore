@@ -7,8 +7,3 @@ target/
 *.iws
 *.iml
 *.ipr
-
-
-### Angular JS ###
-client/node_modules
-client/e2e
