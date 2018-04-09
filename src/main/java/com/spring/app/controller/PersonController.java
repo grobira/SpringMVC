@@ -23,7 +23,6 @@ public class PersonController {
 
     @RequestMapping(value= "/filterByAge", method = RequestMethod.GET)
     public List<Person> findByAgeGreaterThen(@RequestParam("age") String age){
-        System.out.println(this.personService.findByAgeGreaterThen(Integer.parseInt(age)));
         return this.personService.findByAgeGreaterThen(Integer.parseInt(age));
     }
 
