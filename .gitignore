@@ -1,1 +1,14 @@
-.idea/
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+
+### Angular JS ###
+client/node_modules
+client/e2e
