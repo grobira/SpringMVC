@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -16,6 +17,11 @@ public class SubjectController {
     @Autowired
     private SubjectService subjectService;
 
+    @RequestMapping(value= "/id", method = RequestMethod.GET)
+    public Optional<Subject> findById(@RequestParam("id") String id){
+        return this.subjectService.findById(id);
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     public List<Subject> findAll(){
         return this.subjectService.findAll();
@@ -25,6 +31,4 @@ public class SubjectController {
     public Subject insert(@RequestParam("title") String title){
         return this.subjectService.insert(new Subject(new Long(this.findAll().size()) , title));
     }
-
-
 }
